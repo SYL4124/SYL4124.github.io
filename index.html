@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POPCAT Game</title>
+    <link rel="stylesheet">
+    <style>
+    *{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: sans-serif;
+    background-image: linear-gradient(to right, #fdfd98, #fff);
+    width: 100%;
+    height: 100vh;
+}
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.container h1{
+    text-transform: uppercase;
+    font-size: 100px;
+    font-weight: bold;
+    margin: 10px 0;
+    -webkit-text-stroke: 3px #000;
+    color: #fff;
+}
+.container p{
+    font-size: 100px;
+    -webkit-text-stroke: 3px #000;
+    color: #fff;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>popcat</h1>
+        <p id="target">0</p>
+        <img src="./popcat1.png" id="popcat1">
+    </div>
+
+    <!-- Javascript Section -->
+    <script>
+        window.onload = () =>{
+            let img = document.querySelector('#popcat1');
+            let counter = document.querySelector('#target');
+            let score = 0;
+            let sound = new Audio('pop.mp3');
+
+            img.addEventListener('mousedown', ()=> {
+                img.src = 'popcat2.png';
+                sound.play();
+                addToCounter();
+            })
+            img.addEventListener('mouseup', ()=> {
+                img.src = 'popcat1.png';
+            })
+            function addToCounter(){
+                score++;
+                counter.innerHTML = score;
+            }
+
+        }
+    </script>
+</body>
+</html>
